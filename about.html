@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Open4D</title>
+  <meta name="description" content="About the Open4D project: mission, team, roadmap, contributing, and how to cite." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <svg class="logo-mark" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="logo-grad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#22d3ee"/>
+            </linearGradient>
+          </defs>
+          <rect x="3" y="3" width="17" height="17" rx="2.5" fill="none" stroke="url(#logo-grad)" stroke-width="2.2"/>
+          <rect x="12" y="12" width="17" height="17" rx="2.5" fill="none" stroke="url(#logo-grad)" stroke-width="2.2" opacity="0.55"/>
+          <line x1="20" y1="3" x2="29" y2="12" stroke="url(#logo-grad)" stroke-width="1.6" opacity="0.55"/>
+          <line x1="3" y1="20" x2="12" y2="29" stroke="url(#logo-grad)" stroke-width="1.6" opacity="0.55"/>
+        </svg>
+        <span>Open<span class="logo-4d">4D</span></span>
+      </a>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="modules.html">Modules</a></li>
+          <li><a href="documentation.html">Documentation</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="benchmarks.html">Benchmarks</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+        </ul>
+      </nav>
+      <a class="nav-cta" href="https://github.com/SINRG-Lab/Open4D" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <span class="section-eyebrow">About</span>
+      <h1>The Open4D Project</h1>
+      <p>
+        Open4D is developed by the <strong style="color: var(--text);">SINRG Lab at Northeastern University</strong>
+        as open research infrastructure for time-varying 4D geometry — with the explicit goal of letting
+        research compound instead of resetting with every paper.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="reveal">
+        <span class="section-eyebrow">Mission</span>
+        <h2 style="font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 18px;">
+          Shared foundations for a fast-moving field
+        </h2>
+        <p style="color: var(--text-muted); margin-bottom: 16px;">
+          4D geometry — meshes and point clouds whose shape, and even connectivity, changes every frame —
+          is the substrate of volumetric video, telepresence, digital twins, and robot perception. Yet
+          the field's tooling is fragmented: every paper rebuilds IO, metrics, and pipelines from scratch.
+        </p>
+        <p style="color: var(--text-muted);">
+          Open4D exists to fix that. A stable core provides the data model, IO, and metrics; research
+          modules — codecs, trackers, editors — plug into it and evolve independently; benchmarks make
+          comparisons reproducible; and apps prove the whole stack end-to-end, all the way to real-time
+          playback on an XR headset.
+        </p>
+      </div>
+      <div class="reveal">
+        <div class="card" style="margin-bottom: 18px;">
+          <h3>SINRG Lab</h3>
+          <p>
+            The Systems and Intelligent Networking Research Group (SINRG) at Northeastern University works
+            at the intersection of mobile systems, networking, and immersive computing — including
+            volumetric video streaming, XR systems, and machine perception.
+          </p>
+          <a class="card-link" href="https://github.com/SINRG-Lab" target="_blank" rel="noopener">SINRG Lab on GitHub →</a>
+        </div>
+        <div class="card">
+          <h3>Project Lead</h3>
+          <p>
+            <strong style="color: var(--text);">Prof. Mallesham Dasari</strong> — Northeastern University.
+            Open4D grows out of a line of research on volumetric video compression and streaming for
+            immersive systems.
+          </p>
+          <a class="card-link" href="mailto:m.dasari@northeastern.edu">m.dasari@northeastern.edu →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="roadmap">
+    <div class="container">
+      <div class="section-head left">
+        <span class="section-eyebrow">Roadmap</span>
+        <h2>Where the platform is heading</h2>
+      </div>
+      <div class="timeline reveal">
+        <div class="timeline-item done">
+          <span class="when">Shipped</span>
+          <h4>Core API, IO, and players</h4>
+          <p>The <code style="font-family: var(--mono); font-size: 0.85em; color: #a5b4fc;">.o4d</code> data model with readers, writers, playback, and conversion tools for meshes and point clouds — pip-installable.</p>
+        </div>
+        <div class="timeline-item done">
+          <span class="when">Shipped</span>
+          <h4>Compression modules</h4>
+          <p>N4MC, TSMC, and TVMC integrated; Unity decoder plugin running on Meta Quest 3.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="when">In progress</span>
+          <h4>Benchmarks &amp; baselines</h4>
+          <p>Paper-reproducible evaluation harness with reimplemented baselines and shared metrics.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="when">Planned</span>
+          <h4>C++ core and bindings</h4>
+          <p>Performance-critical implementations with Python bindings for real-time pipelines.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="when">Planned</span>
+          <h4>Streaming stack &amp; end-to-end apps</h4>
+          <p>Adaptive 4D streaming pipelines and reference applications for telepresence and robotics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contributing">
+    <div class="container">
+      <div class="section-head left">
+        <span class="section-eyebrow">Contributing</span>
+        <h2>Get involved</h2>
+        <p>Open4D is an open research platform — contributions are welcome in many forms.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card reveal">
+          <h3>New modules</h3>
+          <p>Codecs, trackers, editors, or any algorithm for time-varying geometry, built on the core API.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Benchmarks &amp; datasets</h3>
+          <p>Reimplemented baselines, new test content, and evaluation configurations.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Metrics</h3>
+          <p>Quality, rate, latency, and temporal-stability measures for systems-aware evaluation.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Documentation</h3>
+          <p>Tutorials, examples, and API documentation that lower the barrier to entry.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Performance</h3>
+          <p>Optimizations, C++ ports, and profiling for real-time and on-device pipelines.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Applications</h3>
+          <p>End-to-end demos — telepresence, robotics, digital twins — that exercise the full stack.</p>
+        </div>
+      </div>
+      <div class="callout" style="margin-top: 32px;">
+        <span class="callout-icon">🤝</span>
+        <p>
+          Start with an issue or pull request on <a href="https://github.com/SINRG-Lab/Open4D" target="_blank" rel="noopener">GitHub</a>,
+          or <a href="mailto:m.dasari@northeastern.edu">reach out directly</a> if you'd like to discuss a larger contribution.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="citation">
+    <div class="container">
+      <div class="section-head left">
+        <span class="section-eyebrow">Citation</span>
+        <h2>How to cite</h2>
+        <p>If you use Open4D in your research, please cite it.</p>
+      </div>
+      <div style="max-width: 720px;" class="reveal">
+        <div class="code-block">
+          <div class="code-head"><span>BibTeX</span><button class="copy-btn">Copy</button></div>
+          <pre><code>@software{<span class="fn">open4d2026</span>,
+  <span class="kw">title</span>  = {<span class="str">Open4D: An Open Platform for Time-Varying 4D Geometry Data</span>},
+  <span class="kw">author</span> = {<span class="str">Dasari, Mallesham and the SINRG Lab</span>},
+  <span class="kw">year</span>   = {<span class="num">2026</span>},
+  <span class="kw">url</span>    = {<span class="str">https://github.com/SINRG-Lab/Open4D</span>}
+}</code></pre>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.92rem;">
+          A <code style="font-family: var(--mono); font-size: 0.85em; color: #a5b4fc;">CITATION.cff</code> file
+          with the canonical citation metadata ships in the repository root.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <h2>Questions? Ideas? Datasets?</h2>
+    <p>We're building Open4D in the open and would love to hear from researchers and practitioners working with 4D data.</p>
+    <div class="hero-actions" style="margin-bottom: 0;">
+      <a href="mailto:m.dasari@northeastern.edu" class="btn btn-primary">Contact Us</a>
+      <a href="https://github.com/SINRG-Lab/Open4D/issues" target="_blank" rel="noopener" class="btn btn-secondary">Open an Issue</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo"><span>Open<span class="logo-4d">4D</span></span></a>
+          <p>An open, research-driven platform for the representation, compression, processing, evaluation, and streaming of time-varying 4D geometry data.</p>
+        </div>
+        <div>
+          <h5>Project</h5>
+          <ul>
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="documentation.html">Documentation</a></li>
+            <li><a href="benchmarks.html">Benchmarks</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Code</h5>
+          <ul>
+            <li><a href="https://github.com/SINRG-Lab/Open4D" target="_blank" rel="noopener">Open4D on GitHub</a></li>
+            <li><a href="https://github.com/SINRG-Lab/TSMC" target="_blank" rel="noopener">TSMC</a></li>
+            <li><a href="https://github.com/frozzzen3/N4MC" target="_blank" rel="noopener">N4MC</a></li>
+            <li><a href="https://github.com/SINRG-Lab/Open4D/issues" target="_blank" rel="noopener">Issue Tracker</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Community</h5>
+          <ul>
+            <li><a href="about.html">About &amp; Team</a></li>
+            <li><a href="about.html#contributing">Contributing</a></li>
+            <li><a href="about.html#citation">How to Cite</a></li>
+            <li><a href="mailto:m.dasari@northeastern.edu">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Open4D · SINRG Lab, Northeastern University</span>
+        <span>Open-source research infrastructure for 4D geometry</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
