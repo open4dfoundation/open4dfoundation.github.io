@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation — Open4D</title>
+  <meta name="description" content="Open4D documentation: installation, quickstart, repository structure, core API, IO, metrics, and examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <svg class="logo-mark" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="logo-grad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#22d3ee"/>
+            </linearGradient>
+          </defs>
+          <rect x="3" y="3" width="17" height="17" rx="2.5" fill="none" stroke="url(#logo-grad)" stroke-width="2.2"/>
+          <rect x="12" y="12" width="17" height="17" rx="2.5" fill="none" stroke="url(#logo-grad)" stroke-width="2.2" opacity="0.55"/>
+          <line x1="20" y1="3" x2="29" y2="12" stroke="url(#logo-grad)" stroke-width="1.6" opacity="0.55"/>
+          <line x1="3" y1="20" x2="12" y2="29" stroke="url(#logo-grad)" stroke-width="1.6" opacity="0.55"/>
+        </svg>
+        Open<span class="logo-4d">4D</span>
+      </a>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="modules.html">Modules</a></li>
+          <li><a href="documentation.html" class="active">Documentation</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="benchmarks.html">Benchmarks</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <a class="nav-cta" href="https://github.com/SINRG-Lab/Open4D" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <div class="container docs-layout">
+
+    <!-- Sidebar -->
+    <aside class="docs-sidebar">
+      <h5>Getting Started</h5>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#quickstart">Quickstart</a></li>
+      </ul>
+      <h5>Concepts</h5>
+      <ul>
+        <li><a href="#structure">Repository Structure</a></li>
+        <li><a href="#data-model">The .o4d Data Model</a></li>
+        <li><a href="#design">Design Principles</a></li>
+      </ul>
+      <h5>Core API</h5>
+      <ul>
+        <li><a href="#io">IO — Readers &amp; Writers</a></li>
+        <li><a href="#player">Player</a></li>
+        <li><a href="#tools">Conversion Tools</a></li>
+        <li><a href="#metrics">Metrics</a></li>
+      </ul>
+      <h5>More</h5>
+      <ul>
+        <li><a href="#docker">Docker Environments</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </aside>
+
+    <!-- Content -->
+    <main class="docs-content">
+      <h1>Documentation</h1>
+      <p class="lead">
+        Everything you need to install Open4D, understand its data model, and start working with
+        time-varying 4D geometry.
+      </p>
+
+      <div class="callout">
+        <span class="callout-icon">💡</span>
+        <p>Open4D is under active development. APIs in <code>open4d/</code> are the stable public surface; modules evolve independently. For the latest state of the code, see the <a href="https://github.com/SINRG-Lab/Open4D" target="_blank" rel="noopener">GitHub repository</a>.</p>
+      </div>
+
+      <h2 id="introduction">Introduction</h2>
+      <p>
+        <strong>Open4D</strong> is an open, research-driven platform for the representation, compression,
+        processing, evaluation, and streaming of time-varying 4D geometry data. It serves as shared
+        infrastructure for application domains such as <strong>XR systems, robotics, teleoperation,
+        digital twins, and autonomous systems</strong>, where geometry evolves over time and must be
+        processed under tight latency, bandwidth, and accuracy constraints.
+      </p>
+      <p>
+        The platform is organized into five layers:
+      </p>
+      <ul>
+        <li><strong>Core</strong> (<code>open4d/</code>) — canonical 4D data models, IO, metrics</li>
+        <li><strong>Modules</strong> — research algorithms (e.g., TVMC, ARAP-based tracking)</li>
+        <li><strong>Benchmarks</strong> — paper-reproducible evaluation code, baselines, configs, and scripts</li>
+        <li><strong>Apps</strong> — end-to-end pipelines and demos</li>
+        <li><strong>Bindings</strong> (<code>cpp/</code>, <code>python/</code>) — performance-critical and research-friendly APIs</li>
+      </ul>
+
+      <h2 id="installation">Installation</h2>
+      <h3>Requirements</h3>
+      <ul>
+        <li>Python 3.9 or later</li>
+        <li>Git (with submodule support, for the N4MC and TSMC compression modules)</li>
+        <li>Unity 2022 LTS or later (only for the XR decoder plugin)</li>
+      </ul>
+      <h3>Development install</h3>
+      <div class="code-block">
+        <div class="code-head"><span>shell</span><button class="copy-btn">Copy</button></div>
+        <pre><code>git clone https://github.com/SINRG-Lab/Open4D.git
+cd Open4D
+pip install -e .</code></pre>
+      </div>
+      <h3>With compression submodules</h3>
+      <p>N4MC and TSMC are integrated as git submodules. To fetch them along with the core:</p>
+      <div class="code-block">
+        <div class="code-head"><span>shell</span><button class="copy-btn">Copy</button></div>
+        <pre><code>git clone --recurse-submodules https://github.com/SINRG-Lab/Open4D.git
+
+<span class="cm"># or, in an existing clone</span>
+git submodule update --init --recursive</code></pre>
+      </div>
+
+      <h2 id="quickstart">Quickstart</h2>
+      <p>The <code>examples/</code> directory contains minimal, runnable scripts for the most common tasks:</p>
+      <div class="code-block">
+        <div class="code-head"><span>shell</span><button class="copy-btn">Copy</button></div>
+        <pre><code><span class="cm"># play a time-varying mesh sequence</span>
+python examples/play_mesh_o4d.py
+
+<span class="cm"># play a point-cloud sequence</span>
+python examples/play_poincloud_o4d.py
+
+<span class="cm"># play a Draco-compressed point-cloud sequence</span>
+python examples/play_draco_pointcloud_o4d.py</code></pre>
+      </div>
+      <p>A typical workflow — convert raw per-frame data into an <code>.o4d</code> sequence, then play it back:</p>
+      <div class="code-block">
+        <div class="code-head"><span>shell</span><button class="copy-btn">Copy</button></div>
+        <pre><code><span class="cm"># 1. package raw mesh frames into an .o4d sequence</span>
+python open4d/tools/create_o4d_mesh.py
+
+<span class="cm"># 2. play it back</span>
+python examples/play_mesh_o4d.py</code></pre>
+      </div>
+
+      <h2 id="structure">Repository Structure</h2>
+      <div class="code-block">
+        <div class="code-head"><span>Open4D/</span><button class="copy-btn">Copy</button></div>
+        <pre><code>Open4D/
+├── open4d/          <span class="cm"># Core public API (stable)</span>
+│   ├── core/        <span class="cm"># 4D data structures + core codecs (N4MC, TSMC, TVMC)</span>
+│   ├── io/          <span class="cm"># Readers / writers</span>
+│   ├── metrics/     <span class="cm"># Quality + temporal metrics</span>
+│   ├── modules/     <span class="cm"># Research modules (tvmc, unity_decoder)</span>
+│   ├── player/      <span class="cm"># Playback for meshes and point clouds</span>
+│   └── tools/       <span class="cm"># .o4d creation utilities</span>
+├── benchmarks/      <span class="cm"># Reproducible experiments + baselines</span>
+├── apps/            <span class="cm"># End-to-end pipelines</span>
+├── examples/        <span class="cm"># Minimal usage examples</span>
+├── tests/           <span class="cm"># Unit + integration tests</span>
+├── docs/            <span class="cm"># Documentation and figures</span>
+├── scripts/         <span class="cm"># Helper scripts</span>
+└── docker/          <span class="cm"># Reproducible environments</span></code></pre>
+      </div>
+
+      <h2 id="data-model">The .o4d Data Model</h2>
+      <p>
+        Open4D treats <strong>time as a first-class signal</strong>. Instead of a directory of unrelated
+        per-frame files, an <code>.o4d</code> sequence is a single logical object: an ordered set of
+        geometry frames plus timing metadata, so downstream code — codecs, metrics, players — can reason
+        about temporal structure directly.
+      </p>
+      <p>Supported content types in the current core:</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Content</th><th>Reader / Writer</th><th>Player</th><th>Creation tool</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Time-varying mesh</td>
+              <td><code>open4d/io/o4d_mesh_io.py</code></td>
+              <td><code>open4d/player/mesh.py</code></td>
+              <td><code>create_o4d_mesh.py</code></td>
+            </tr>
+            <tr>
+              <td>Point-cloud sequence</td>
+              <td><code>open4d/io/o4d_pointcloud_io.py</code></td>
+              <td><code>open4d/player/pointcloud.py</code></td>
+              <td><code>create_o4d_pointcloud.py</code></td>
+            </tr>
+            <tr>
+              <td>Draco-compressed point cloud</td>
+              <td><code>open4d/io/o4d_draco_pointcloud_io.py</code></td>
+              <td><code>open4d/player/draco_pointcloud.py</code></td>
+              <td><code>create_o4d_draco_pointcloud.py</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="design">Design Principles</h2>
+      <ul>
+        <li><strong>4D-first</strong> — time is a first-class signal, not an afterthought</li>
+        <li><strong>Separation of concerns</strong> — core abstractions vs. research modules</li>
+        <li><strong>Reproducibility</strong> — benchmarks are explicit and scriptable</li>
+        <li><strong>Systems-aware</strong> — metrics include bitrate, latency, and temporal stability</li>
+        <li><strong>Cross-domain</strong> — XR, robotics, and autonomy share the same foundations</li>
+      </ul>
+
+      <h2 id="io">IO — Readers &amp; Writers</h2>
+      <p>
+        The <code>open4d.io</code> package provides a unified interface for reading and writing 4D
+        sequences. Each content type has a dedicated IO module with a symmetric read/write API, so codecs
+        and players are decoupled from on-disk formats.
+      </p>
+      <div class="code-block">
+        <div class="code-head"><span>python — illustrative</span><button class="copy-btn">Copy</button></div>
+        <pre><code><span class="kw">from</span> open4d <span class="kw">import</span> io
+
+<span class="cm"># read a time-varying mesh sequence</span>
+seq = io.<span class="fn">o4d_mesh_io</span>.read(<span class="str">"longdress.o4d"</span>)
+
+<span class="cm"># iterate frames over time</span>
+<span class="kw">for</span> frame <span class="kw">in</span> seq:
+    process(frame)</code></pre>
+      </div>
+      <div class="callout warn">
+        <span class="callout-icon">⚠️</span>
+        <p>Snippets marked <em>illustrative</em> show the intended API shape. Check the module source and <code>examples/</code> for the exact, current signatures.</p>
+      </div>
+
+      <h2 id="player">Player</h2>
+      <p>
+        <code>open4d.player</code> renders sequences interactively. It supports mesh sequences, raw
+        point-cloud sequences, and Draco-compressed point-cloud streams — decode happens frame-by-frame,
+        matching how a streaming client would consume the data.
+      </p>
+
+      <h2 id="tools">Conversion Tools</h2>
+      <p>
+        <code>open4d.tools</code> packages raw per-frame assets (e.g., a folder of PLY/OBJ frames) into
+        <code>.o4d</code> sequences, including Draco-compressed variants for bandwidth-constrained playback.
+      </p>
+
+      <h2 id="metrics">Metrics</h2>
+      <p>
+        <code>open4d.metrics</code> hosts quality and temporal metrics used across benchmarks. The design
+        goal is <strong>systems-aware evaluation</strong>: not just geometric distortion, but the
+        quantities that decide whether a pipeline is deployable —
+      </p>
+      <ul>
+        <li><strong>Geometric quality</strong> — point-to-point / point-to-plane distortion, mesh distance</li>
+        <li><strong>Rate</strong> — bitrate and compression ratio</li>
+        <li><strong>Latency</strong> — encode/decode time budgets for real-time pipelines</li>
+        <li><strong>Temporal stability</strong> — consistency of geometry across frames, beyond per-frame error</li>
+      </ul>
+
+      <h2 id="docker">Docker Environments</h2>
+      <p>
+        The <code>docker/</code> directory provides containerized environments so that experiments run the
+        same way on any machine — a prerequisite for reproducible benchmarks.
+      </p>
+
+      <h2 id="faq">FAQ</h2>
+      <h3>How is Open4D different from Open3D?</h3>
+      <p>
+        Open3D focuses on static 3D data processing. Open4D targets the <strong>time-varying</strong> case:
+        sequences of meshes and point clouds whose geometry (and even connectivity) changes every frame,
+        with compression, streaming, and temporal metrics as core concerns rather than extensions.
+      </p>
+      <h3>Can I use only the codecs?</h3>
+      <p>
+        Yes. N4MC, TSMC, and TVMC live in their own repositories/submodules and can be used standalone;
+        Open4D adds the shared IO, metrics, and benchmark scaffolding around them.
+      </p>
+      <h3>How do I contribute?</h3>
+      <p>
+        New modules, benchmarks, datasets, metrics, and documentation are all welcome — see
+        <a href="about.html#contributing">Contributing</a>.
+      </p>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">Open<span class="logo-4d">4D</span></a>
+          <p>An open, research-driven platform for the representation, compression, processing, evaluation, and streaming of time-varying 4D geometry data.</p>
+        </div>
+        <div>
+          <h5>Project</h5>
+          <ul>
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="documentation.html">Documentation</a></li>
+            <li><a href="benchmarks.html">Benchmarks</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Code</h5>
+          <ul>
+            <li><a href="https://github.com/SINRG-Lab/Open4D" target="_blank" rel="noopener">Open4D on GitHub</a></li>
+            <li><a href="https://github.com/SINRG-Lab/TSMC" target="_blank" rel="noopener">TSMC</a></li>
+            <li><a href="https://github.com/frozzzen3/N4MC" target="_blank" rel="noopener">N4MC</a></li>
+            <li><a href="https://github.com/SINRG-Lab/Open4D/issues" target="_blank" rel="noopener">Issue Tracker</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Community</h5>
+          <ul>
+            <li><a href="about.html">About &amp; Team</a></li>
+            <li><a href="about.html#contributing">Contributing</a></li>
+            <li><a href="about.html#citation">How to Cite</a></li>
+            <li><a href="mailto:m.dasari@northeastern.edu">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Open4D · SINRG Lab, Northeastern University</span>
+        <span>Open-source research infrastructure for 4D geometry</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

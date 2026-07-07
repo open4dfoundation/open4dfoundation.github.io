@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Open4D — An Open Platform for 4D Geometry Data</title>
+  <meta name="description" content="Open4D is an open, research-driven platform for the representation, compression, processing, evaluation, and streaming of time-varying 4D geometry data." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <svg class="logo-mark" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="logo-grad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#22d3ee"/>
+            </linearGradient>
+          </defs>
+          <rect x="3" y="3" width="17" height="17" rx="2.5" fill="none" stroke="url(#logo-grad)" stroke-width="2.2"/>
+          <rect x="12" y="12" width="17" height="17" rx="2.5" fill="none" stroke="url(#logo-grad)" stroke-width="2.2" opacity="0.55"/>
+          <line x1="20" y1="3" x2="29" y2="12" stroke="url(#logo-grad)" stroke-width="1.6" opacity="0.55"/>
+          <line x1="3" y1="20" x2="12" y2="29" stroke="url(#logo-grad)" stroke-width="1.6" opacity="0.55"/>
+        </svg>
+        Open<span class="logo-4d">4D</span>
+      </a>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="modules.html">Modules</a></li>
+          <li><a href="documentation.html">Documentation</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="benchmarks.html">Benchmarks</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <a class="nav-cta" href="https://github.com/SINRG-Lab/Open4D" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="container">
+      <div class="hero-badge"><span class="dot"></span> Open research platform &nbsp;·&nbsp; SINRG Lab, Northeastern University</div>
+      <h1>The open platform for<br /><span class="gradient-text">4D geometry data</span></h1>
+      <p class="hero-sub">
+        Open4D is an open, research-driven platform for the <strong>representation, compression, processing,
+        evaluation, and streaming</strong> of time-varying 4D geometry — built for XR, robotics, teleoperation,
+        digital twins, and autonomous systems.
+      </p>
+      <div class="hero-actions">
+        <a href="documentation.html" class="btn btn-primary">Get Started</a>
+        <a href="https://github.com/SINRG-Lab/Open4D" target="_blank" rel="noopener" class="btn btn-secondary">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+      <div class="hero-terminal">
+        <div class="term-bar">
+          <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
+          <span class="term-title">terminal</span>
+        </div>
+        <pre><span class="comment"># Install Open4D (development)</span>
+<span class="prompt">$</span> git clone https://github.com/SINRG-Lab/Open4D.git
+<span class="prompt">$</span> cd Open4D
+<span class="prompt">$</span> pip install -e .
+<span class="comment"># Play a time-varying mesh sequence</span>
+<span class="prompt">$</span> python examples/play_mesh_o4d.py</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <div class="stats-strip">
+    <div class="stat"><div class="stat-num">6+</div><div class="stat-label">Research modules</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Languages — Python, C#, C++</div></div>
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Ecosystem layers</div></div>
+    <div class="stat"><div class="stat-num">XR</div><div class="stat-label">Runs on Meta Quest 3</div></div>
+  </div>
+
+  <!-- ============ NEWS ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head left">
+        <span class="section-eyebrow">News</span>
+        <h2>Latest updates</h2>
+      </div>
+      <div class="news-list reveal">
+        <div class="news-item">
+          <span class="news-date">Jul 2026</span>
+          <div><h4>Open4D website launched</h4><p>A new home for docs, modules, benchmarks, and the project roadmap.</p></div>
+        </div>
+        <div class="news-item">
+          <span class="news-date">Jun 2026</span>
+          <div><h4>N4MC and TSMC integrated as core compression modules</h4><p>Neural time-varying mesh compression and 4D scene mesh compression now ship as submodules.</p></div>
+        </div>
+        <div class="news-item">
+          <span class="news-date">May 2026</span>
+          <div><h4>Unity decoder plugin runs on Meta Quest 3</h4><p>Real-time 4D mesh decoding on standalone XR headsets via the Unity plugin.</p></div>
+        </div>
+        <div class="news-item">
+          <span class="news-date">Apr 2026</span>
+          <div><h4>Open4D core API released on GitHub</h4><p>Canonical 4D data models, IO readers/writers, and quality metrics — installable with pip.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY OPEN4D ============ -->
+  <section class="section section-alt">
+    <div class="container split">
+      <div class="reveal">
+        <span class="section-eyebrow">Why Open4D?</span>
+        <h2 style="font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 18px;">
+          Let research compound,<br />not reset with every paper
+        </h2>
+        <p style="color: var(--text-muted); margin-bottom: 28px;">
+          Today, 4D geometry pipelines are fragmented — algorithms live in paper-specific codebases,
+          evaluation scripts are ad hoc, datasets and metrics are inconsistent, and systems integration
+          is repeatedly re-implemented. Open4D provides a <strong style="color: var(--text);">common substrate</strong>:
+        </p>
+        <ul class="checklist">
+          <li><span class="check"><svg viewBox="0 0 16 16"><path d="M2 8.5 6 12.5 14 3.5"/></svg></span><span><strong>Stable 4D data abstractions</strong> — time is a first-class signal, not an afterthought</span></li>
+          <li><span class="check"><svg viewBox="0 0 16 16"><path d="M2 8.5 6 12.5 14 3.5"/></svg></span><span><strong>Reusable IO and metrics</strong> — shared readers, writers, and quality measures</span></li>
+          <li><span class="check"><svg viewBox="0 0 16 16"><path d="M2 8.5 6 12.5 14 3.5"/></svg></span><span><strong>Modular research algorithms</strong> — modules evolve independently on a stable core</span></li>
+          <li><span class="check"><svg viewBox="0 0 16 16"><path d="M2 8.5 6 12.5 14 3.5"/></svg></span><span><strong>Reproducible benchmarks</strong> — explicit, scriptable, paper-reproducible</span></li>
+          <li><span class="check"><svg viewBox="0 0 16 16"><path d="M2 8.5 6 12.5 14 3.5"/></svg></span><span><strong>Systems-aware evaluation</strong> — bitrate, latency, and temporal stability included</span></li>
+        </ul>
+      </div>
+      <figure class="figure-block reveal">
+        <div class="figure-media"><img src="assets/open4d-ecosystem.png" alt="Open4D ecosystem layers diagram" /></div>
+        <figcaption><strong>The Open4D ecosystem.</strong> Core API, research modules, benchmarks, apps, and bindings — separated by design so each layer can evolve independently.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Core Features</span>
+        <h2>Everything 4D, in one stack</h2>
+        <p>From canonical data structures to on-headset playback, Open4D covers the full lifecycle of time-varying geometry.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card reveal">
+          <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2 3 7v10l9 5 9-5V7l-9-5z"/><path d="M3 7l9 5 9-5"/><path d="M12 12v10"/></svg></div>
+          <h3>4D Data Structures</h3>
+          <p>Canonical representations for time-varying meshes and point clouds — the <code style="font-family: var(--mono); font-size: 0.85em; color: #a5b4fc;">.o4d</code> data model treats time as a first-class dimension.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 17v3h16v-3"/><path d="M12 3v13"/><path d="M7 11l5 5 5-5"/></svg></div>
+          <h3>IO Readers &amp; Writers</h3>
+          <p>Unified readers and writers for mesh sequences, point-cloud streams, and Draco-compressed point clouds — one API across formats.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3l-9 9"/><path d="M15 3h6v6"/></svg></div>
+          <h3>Compression Codecs</h3>
+          <p>State-of-the-art encoders and decoders for 4D meshes — neural (N4MC), scene-level (TSMC), and time-varying mesh compression (TVMC).</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4"/><path d="M14 12h4"/></svg></div>
+          <h3>XR Playback</h3>
+          <p>A Unity decoder plugin decodes and renders 4D meshes in real time on XR headsets, including the standalone Meta Quest 3.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M3 20h18"/><path d="M5 20V10"/><path d="M10 20V4"/><path d="M15 20v-8"/><path d="M20 20V7"/></svg></div>
+          <h3>Quality &amp; Temporal Metrics</h3>
+          <p>Systems-aware evaluation out of the box: geometric distortion, bitrate, latency, and temporal-stability metrics for streaming pipelines.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4"/><path d="M15 3h4a2 2 0 0 1 2 2v4"/><path d="M9 21H5a2 2 0 0 1-2-2v-4"/><path d="M15 21h4a2 2 0 0 0 2-2v-4"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3>Reproducible Benchmarks</h3>
+          <p>Paper-reproducible experiment code with reimplemented baselines, configs, and scripts — so results are comparable across papers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MODULES PREVIEW ============ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Research Modules</span>
+        <h2>Built by researchers, for researchers</h2>
+        <p>Independent modules on top of the stable core API. Each ships with code, configs, and evaluation scripts.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card reveal">
+          <span class="card-tag tag-core">Compression</span>
+          <h3>N4MC</h3>
+          <p>Neural time-varying mesh compression — learned codecs for dynamic mesh sequences.</p>
+          <a class="card-link" href="modules.html#n4mc">Learn more →</a>
+        </div>
+        <div class="card reveal">
+          <span class="card-tag tag-core">Compression</span>
+          <h3>TSMC</h3>
+          <p>Time-varying 4D scene mesh compression for full dynamic scenes.</p>
+          <a class="card-link" href="modules.html#tsmc">Learn more →</a>
+        </div>
+        <div class="card reveal">
+          <span class="card-tag tag-core">Compression</span>
+          <h3>TVMC</h3>
+          <p>Time-varying mesh compression exploiting temporal redundancy across frames.</p>
+          <a class="card-link" href="modules.html#tvmc">Learn more →</a>
+        </div>
+        <div class="card reveal">
+          <span class="card-tag tag-app">XR / Unity</span>
+          <h3>Unity Decoder Plugin</h3>
+          <p>Real-time 4D mesh decoding in Unity — runs on XR headsets like Meta Quest 3.</p>
+          <a class="card-link" href="modules.html#unity">Learn more →</a>
+        </div>
+        <div class="card reveal">
+          <span class="card-tag tag-module">Tracking</span>
+          <h3>ARAP Volume Tracking</h3>
+          <p>Deformation-aware temporal alignment using as-rigid-as-possible volume tracking.</p>
+          <a class="card-link" href="modules.html#arap">Learn more →</a>
+        </div>
+        <div class="card reveal">
+          <span class="card-tag tag-module">Editing</span>
+          <h3>Temporal Mesh Editing</h3>
+          <p>Structured editing of dynamic geometry that stays consistent across time.</p>
+          <a class="card-link" href="modules.html#editing">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUICKSTART ============ -->
+  <section class="section">
+    <div class="container split">
+      <div class="reveal">
+        <span class="section-eyebrow">Quickstart</span>
+        <h2 style="font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 18px;">
+          From clone to playback<br />in three commands
+        </h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">
+          Open4D installs as a standard Python package. Bundled examples let you load, convert, and play
+          time-varying meshes and point clouds immediately — including Draco-compressed point-cloud streams.
+        </p>
+        <a href="documentation.html" class="btn btn-secondary">Read the docs</a>
+      </div>
+      <div class="reveal">
+        <div class="code-block">
+          <div class="code-head"><span>install &amp; run</span><button class="copy-btn">Copy</button></div>
+          <pre><code><span class="cm"># clone and install</span>
+git clone https://github.com/SINRG-Lab/Open4D.git
+cd Open4D
+pip install -e .
+
+<span class="cm"># play a 4D mesh sequence</span>
+python examples/play_mesh_o4d.py
+
+<span class="cm"># play a Draco-compressed point cloud</span>
+python examples/play_draco_pointcloud_o4d.py</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CITATION ============ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Citation</span>
+        <h2>Using Open4D in your research?</h2>
+        <p>If Open4D is useful in your work, please cite the project.</p>
+      </div>
+      <div style="max-width: 720px; margin: 0 auto;" class="reveal">
+        <div class="code-block">
+          <div class="code-head"><span>BibTeX</span><button class="copy-btn">Copy</button></div>
+          <pre><code>@software{<span class="fn">open4d2026</span>,
+  <span class="kw">title</span>  = {<span class="str">Open4D: An Open Platform for Time-Varying 4D Geometry Data</span>},
+  <span class="kw">author</span> = {<span class="str">Dasari, Mallesham and the SINRG Lab</span>},
+  <span class="kw">year</span>   = {<span class="num">2026</span>},
+  <span class="kw">url</span>    = {<span class="str">https://github.com/SINRG-Lab/Open4D</span>}
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta-band">
+    <h2>Build the future of 4D with us</h2>
+    <p>New modules, benchmarks, datasets, metrics, and documentation are all welcome. Open4D is an open research platform — contributions compound.</p>
+    <div class="hero-actions" style="margin-bottom: 0;">
+      <a href="https://github.com/SINRG-Lab/Open4D" target="_blank" rel="noopener" class="btn btn-primary">Contribute on GitHub</a>
+      <a href="about.html" class="btn btn-secondary">About the project</a>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">Open<span class="logo-4d">4D</span></a>
+          <p>An open, research-driven platform for the representation, compression, processing, evaluation, and streaming of time-varying 4D geometry data.</p>
+        </div>
+        <div>
+          <h5>Project</h5>
+          <ul>
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="documentation.html">Documentation</a></li>
+            <li><a href="benchmarks.html">Benchmarks</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Code</h5>
+          <ul>
+            <li><a href="https://github.com/SINRG-Lab/Open4D" target="_blank" rel="noopener">Open4D on GitHub</a></li>
+            <li><a href="https://github.com/SINRG-Lab/TSMC" target="_blank" rel="noopener">TSMC</a></li>
+            <li><a href="https://github.com/frozzzen3/N4MC" target="_blank" rel="noopener">N4MC</a></li>
+            <li><a href="https://github.com/SINRG-Lab/Open4D/issues" target="_blank" rel="noopener">Issue Tracker</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Community</h5>
+          <ul>
+            <li><a href="about.html">About &amp; Team</a></li>
+            <li><a href="about.html#contributing">Contributing</a></li>
+            <li><a href="about.html#citation">How to Cite</a></li>
+            <li><a href="mailto:m.dasari@northeastern.edu">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Open4D · SINRG Lab, Northeastern University</span>
+        <span>Open-source research infrastructure for 4D geometry</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
