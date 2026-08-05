@@ -1,6 +1,6 @@
 # Open4D Website
 
-Static website for [Open4D](https://github.com/SINRG-Lab/Open4D) — an open platform for
+Static website for [Open4D](https://github.com/open4dfoundation/Open4D) — an open platform for
 time-varying 4D geometry data.
 
 ## Structure
